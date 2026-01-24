@@ -10,20 +10,27 @@
             <h4>History</h4>
             <table class="table">
                 <tbody>
-                    <tr>
-                        <th>
-                            Mileage
-                        </th>
-                        <td>
-                            10,000
-                        </td>
-                        <th>
-                            Date
-                        </th>
-                        <td>
-                            01/01/2020
-                        </td>
-                    </tr>
+                    @if (!service.records.length) {
+                        <tr>
+                            <th class="bg-primary-subtle">No records found.</th>
+                        </tr>
+                    }
+                    @for (record of service.records; track $index) {
+                        <tr>
+                            <th>
+                                Mileage
+                            </th>
+                            <td>
+                                {{ record.mileage }}
+                            </td>
+                            <th>
+                                Date
+                            </th>
+                            <td>
+                                {{ record.date }}
+                            </td>
+                        </tr>
+                    }
                 </tbody>
             </table>
         </div>
