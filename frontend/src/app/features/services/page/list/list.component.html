@@ -1,1 +1,5 @@
-<p>list works!</p>
+<div class="row">
+    @for (service of services; track $index) {
+        <app-service-card [service]="service"></app-service-card>
+    }
+</div>
