@@ -1,7 +1,4 @@
-export interface Service {
-    type: ServiceType,
-    interval: ServiceInterval,
-}
+import { ServiceRecord } from "./service-record";
 
 export enum ServiceType {
     AirFilter = "Air Filter",
@@ -16,6 +13,12 @@ export enum ServiceType {
     AirConditioning = "Air Conditioning",
     Tyres = "Tyres",
     Brakes = "Brakes"
+}
+
+export interface Service {
+    type: ServiceType,
+    interval: ServiceInterval,
+    records: ServiceRecord[]
 }
 
 interface ServiceInterval {
