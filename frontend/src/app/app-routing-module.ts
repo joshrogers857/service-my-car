@@ -15,6 +15,12 @@ const routes: Routes = [
     component: AppLayoutComponent,
     children: [
       { path: 'home', component: HomeComponent },
+
+      {
+        path: 'services',
+        loadChildren: async () => (await import('./features/services/services-routing-module')).ServicesRoutingModule
+      },
+
       { path: '**', redirectTo: '/home', pathMatch: 'full' }
     ]
   }
