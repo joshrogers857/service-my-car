@@ -3,6 +3,8 @@ import { Injectable } from "@angular/core";
 /**
  * Service to provide access to a persistent storage mechanism intended to
  * support caching data, to improve performance.
+ * 
+ * Note: this should not be used to store sensitive information.
  */
 @Injectable({
   providedIn: 'root',
