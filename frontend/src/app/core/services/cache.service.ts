@@ -34,7 +34,7 @@ export class CacheService {
      * @param key to store the provided item under
      * @param item to store
      */
-    public setItem(key: string, item: object): void {
+    public setItem(key: string, item: any): void {
         const stringified = JSON.stringify(item);
 
         localStorage.setItem(key, stringified)

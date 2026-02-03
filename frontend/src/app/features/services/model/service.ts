@@ -16,6 +16,7 @@ export enum ServiceType {
 }
 
 export interface Service {
+    id: number,
     type: ServiceType,
     interval: ServiceInterval,
     records: ServiceRecord[]
