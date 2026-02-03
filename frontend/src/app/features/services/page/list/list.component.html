@@ -1,5 +1,24 @@
+<div class="row mb-2">
+    <div class="col">
+        <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+            <div class="d-flex justify-content-between gap-2">
+                <div class="w-50">
+                    <label for="currentMileage" class="form-label">Current Mileage: </label>
+                    <input id="currentMileage" class="form-control" type="number" formControlName="currentMileage" />
+                </div>
+                <div class="w-50">
+                    <label for="buildDate" class="form-label">Build Date: </label>
+                    <input id="buildDate" class="form-control" type="date" formControlName="buildDate" />
+                </div>
+            </div>
+            <div class="d-flex justify-content-end">
+                <button class="btn btn-sm btn-primary mt-1">Save</button>
+            </div>
+        </form>
+    </div>
+</div>
 <div class="row">
-    @for (service of services; track $index) {
+    @for (service of services; track service.id) {
         <app-service-card [service]="service"></app-service-card>
     }
 </div>

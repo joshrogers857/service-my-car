@@ -13,9 +13,10 @@ export class ServiceService {
     // TODO: this data source would be replaced with a call to our API once implemented
     private services: Service[] = [
         {
+            id: 1,
             type: ServiceType.OilAndOilFilter,
             interval: {
-                mileage: 7000,
+                mileage: 700,
                 months: 12
             },
             records: [
@@ -26,6 +27,7 @@ export class ServiceService {
             ],
         },
         {
+            id: 2,
             type: ServiceType.Coolant,
             interval: {
                 mileage: 60000,
