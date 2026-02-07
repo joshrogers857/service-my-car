@@ -16,15 +16,9 @@ export class ServiceService {
             id: 1,
             type: ServiceType.OilAndOilFilter,
             interval: {
-                mileage: 700,
+                mileage: 7000,
                 months: 12
             },
-            records: [
-                {
-                    mileage: 6890,
-                    date: new Date('2025-01-01')
-                },
-            ],
         },
         {
             id: 2,
@@ -33,7 +27,6 @@ export class ServiceService {
                 mileage: 60000,
                 months: 84
             },
-            records: [],
         },
     ];
 }

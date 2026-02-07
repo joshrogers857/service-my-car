@@ -1,5 +1,3 @@
-import { ServiceRecord } from "./service-record";
-
 export enum ServiceType {
     AirFilter = "Air Filter",
     PollenFilter = "Pollen Filter",
@@ -19,7 +17,6 @@ export interface Service {
     id: number,
     type: ServiceType,
     interval: ServiceInterval,
-    records: ServiceRecord[]
 }
 
 interface ServiceInterval {
