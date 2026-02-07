@@ -9,7 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   declarations: [
     ListComponent,
     ViewComponent,
-    ServiceCardComponent
+    ServiceCardComponent,
   ],
   imports: [
     CommonModule,
