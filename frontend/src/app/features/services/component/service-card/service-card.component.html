@@ -1,43 +1,42 @@
-<div class="col-12 col-md-6 mb-2">
-    <div class="card">
-        <div class="card-header">
-            <h3>{{ service.type }}</h3>
-        </div>
-        <div class="card-body">
-            <h4>Interval</h4>
-            <p>Every {{ service.interval.mileage }} miles OR {{ service.interval.months }} months, whichever comes first.</p>
-            <hr>
-            <h4>History</h4>
-            <table class="table">
-                <tbody>
-                    @if (!service.records.length) {
-                        <tr>
-                            <th class="bg-primary-subtle">No records found.</th>
-                        </tr>
-                    }
-                    @for (record of service.records; track $index) {
-                        <tr>
-                            <th>
-                                Mileage
-                            </th>
-                            <td>
-                                {{ record.mileage }}
-                            </td>
-                            <th>
-                                Date
-                            </th>
-                            <td>
-                                {{ record.date }}
-                            </td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
-        <div class="card-footer d-flex justify-content-end">
-            <button class="btn btn-primary">
-                Add New Record
-            </button>
-        </div>
+<div class="card">
+    <div class="card-header">
+        <h3>{{ service.type }}</h3>
+    </div>
+    <div class="card-body">
+        <h4>Interval</h4>
+        <p>Every {{ service.interval.mileage }} miles OR {{ service.interval.months }} months, whichever comes first.
+        </p>
+        <hr>
+        <h4>History</h4>
+        <table class="table">
+            <tbody>
+                @if (!records.length) {
+                <tr>
+                    <th class="bg-primary-subtle">No records found.</th>
+                </tr>
+                }
+                @for (record of records; track $index) {
+                <tr>
+                    <th>
+                        Mileage
+                    </th>
+                    <td>
+                        {{ record.mileage }}
+                    </td>
+                    <th>
+                        Date
+                    </th>
+                    <td>
+                        {{ record.date }}
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="card-footer d-flex justify-content-end">
+        <button class="btn btn-primary">
+            Add New Record
+        </button>
     </div>
 </div>
