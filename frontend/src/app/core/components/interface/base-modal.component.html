@@ -3,8 +3,9 @@
 	<button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss()"></button>
 </div>
 <div class="modal-body">
-     test
+  <ng-container #container>
+  </ng-container>
 </div>
 <div class="modal-footer">
-	<button type="button" class="btn btn-outline-secondary" (click)="activeModal.close()">Save</button>
+	<button type="button" class="btn btn-outline-secondary" (click)="onSubmit()">Save</button>
 </div>
