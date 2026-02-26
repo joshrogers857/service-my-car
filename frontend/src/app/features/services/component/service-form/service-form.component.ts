@@ -22,7 +22,9 @@ export class ServiceFormComponent implements ModalContent {
   ) {}
 
   public onSubmit(): void {
-    this.serviceRecordService.saveRecordForServiceType(this.serviceType, {
+    this.serviceRecordService.saveRecordForServiceType({
+      uuid: crypto.randomUUID(),
+      type: this.serviceType,
       mileage: this.formGroup.get('mileage')!.value ?? 0,
       date: this.formGroup.get('date')!.value ?? "2000-01-01",
     });

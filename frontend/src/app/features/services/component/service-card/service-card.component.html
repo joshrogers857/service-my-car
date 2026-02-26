@@ -15,7 +15,7 @@
                     <th class="bg-primary-subtle">No records found.</th>
                 </tr>
                 }
-                @for (record of records; track $index) {
+                @for (record of records; track record.uuid) {
                 <tr>
                     <th>
                         Mileage
@@ -28,6 +28,14 @@
                     </th>
                     <td>
                         {{ record.date }}
+                    </td>
+                    <td class="d-flex justify-content-end">
+                        <button
+                            class="btn bg-danger text-white"
+                            (click)="deleteRecord(record)"
+                        >
+                            Delete
+                        </button>
                     </td>
                 </tr>
                 }

@@ -40,6 +40,11 @@ export class ServiceCardComponent implements OnInit {
       });
     }
 
+    public deleteRecord(record: ServiceRecord): void {
+      this.serviceRecordService.deleteRecord(record);
+      this.getServiceRecordsForServiceType();
+    }
+
     private getServiceRecordsForServiceType(): void {
       this.records = this.serviceRecordService.getRecordsForServiceType(this.service.type);
     }
