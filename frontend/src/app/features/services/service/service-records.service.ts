@@ -29,8 +29,8 @@ export class ServiceRecordService {
      * @param serviceType to save the new record for
      * @param record to save
      */
-    public saveRecordForServiceType(serviceType: ServiceType, record: ServiceRecord): void {
-        let records = this.cacheService.getItem<ServiceRecord[]>(serviceType);
+    public saveRecordForServiceType(record: ServiceRecord): void {
+        let records = this.cacheService.getItem<ServiceRecord[]>(record.type);
 
         if (records) {
             records.push(record);
@@ -39,6 +39,28 @@ export class ServiceRecordService {
             records = [record];
         }
 
-        this.cacheService.setItem(serviceType, records);
+        this.cacheService.setItem(record.type, records);
+    }
+
+    /**
+     * Delete an existing service record
+     * 
+     * @param record to delete
+     */
+    public deleteRecord(record: ServiceRecord): void {
+        let records = this.cacheService.getItem<ServiceRecord[]>(record.type);
+
+        if (records) {
+            const idx = records.findIndex((serviceRecord) => serviceRecord.uuid === record.uuid);
+
+            if (idx > -1) {
+                records.splice(idx, 1);
+            }
+
+        } else {
+            records = [];
+        }
+
+        this.cacheService.setItem(record.type, records);
     }
 }
