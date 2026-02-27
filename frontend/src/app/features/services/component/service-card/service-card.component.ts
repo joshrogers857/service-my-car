@@ -3,7 +3,8 @@ import { Service } from '../../model/service';
 import { ServiceRecord } from '../../model/service-record';
 import { ServiceRecordService } from '../../service/service-records.service';
 import { ModalService } from '../../../../core/services/modal.service';
-import { ServiceFormComponent } from '../service-form/service-form.component';
+import { AddServiceFormComponent } from '../add-service-form/add-service-form.component';
+import { EditServiceFormComponent } from '../edit-service-form/edit-service-form.component';
 
 @Component({
   selector: 'app-service-card',
@@ -30,9 +31,23 @@ export class ServiceCardComponent implements OnInit {
       this.modalService.openModal({
         title: 'Add New Record: ' + this.service.type,
         submitBtnText: 'Add Record',
-        contentComponent: ServiceFormComponent,
+        contentComponent: AddServiceFormComponent,
         inputs: {
           serviceType: this.service.type,
+        }
+      }).subscribe(() => {
+        this.getServiceRecordsForServiceType();
+        this.cdr.detectChanges();
+      });
+    }
+
+    public openEditRecordModal(record: ServiceRecord): void {
+      this.modalService.openModal({
+        title: 'Edit Record: ' + this.service.type,
+        submitBtnText: 'Edit Record',
+        contentComponent: EditServiceFormComponent,
+        inputs: {
+          record: record,
         }
       }).subscribe(() => {
         this.getServiceRecordsForServiceType();

@@ -1,0 +1,12 @@
+<form [formGroup]="formGroup">
+    <div class="d-flex justify-content-between gap-2">
+        <div class="w-50">
+            <label for="mileage" class="form-label">Mileage: </label>
+            <input id="mileage" class="form-control" type="number" formControlName="mileage" />
+        </div>
+        <div class="w-50">
+            <label for="date" class="form-label">Date: </label>
+            <input id="date" class="form-control" type="date" formControlName="date" />
+        </div>
+    </div>
+</form>
