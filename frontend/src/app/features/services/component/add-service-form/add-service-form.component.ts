@@ -6,9 +6,9 @@ import { ServiceRecordService } from "../../service/service-records.service";
 
 @Component({
   standalone: false,
-  templateUrl: './service-form.component.html',
+  templateUrl: './add-service-form.component.html',
 })
-export class ServiceFormComponent implements ModalContent {
+export class AddServiceFormComponent implements ModalContent {
 
   @Input() serviceType!: ServiceType;
 

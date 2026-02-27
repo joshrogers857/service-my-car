@@ -43,6 +43,28 @@ export class ServiceRecordService {
     }
 
     /**
+     * Edit the value for an existing service record
+     * 
+     * @param record 
+     */
+    public editRecord(record: ServiceRecord): void {
+        let records = this.cacheService.getItem<ServiceRecord[]>(record.type);
+
+        if (records) {
+            const idx = records.findIndex((serviceRecord) => serviceRecord.uuid === record.uuid);
+
+            if (idx > -1) {
+                records[idx] = record;
+            }
+
+        } else {
+            records = [];
+        }
+
+        this.cacheService.setItem(record.type, records);
+    }
+
+    /**
      * Delete an existing service record
      * 
      * @param record to delete
