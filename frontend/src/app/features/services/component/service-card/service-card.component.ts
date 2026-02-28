@@ -17,6 +17,19 @@ export class ServiceCardComponent implements OnInit {
 
     public records: ServiceRecord[] = [];
 
+    public get serviceNextDue(): string {
+      if (this.records.length) {
+        const record = this.records[this.records.length - 1];
+        const miles = record.mileage + this.service.interval.mileage;
+        const date = new Date(record.date);
+        const nextDate = new Date(new Date(date).setMonth(date.getMonth() + this.service.interval.months));
+
+        return miles + ' miles or ' + nextDate.toDateString();
+      }
+
+      return 'Please add a service record';
+    }
+
     public constructor(
       private serviceRecordService: ServiceRecordService,
       private modalService: ModalService,

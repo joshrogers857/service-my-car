@@ -20,7 +20,8 @@ export class ServiceRecordService {
     public getRecordsForServiceType(serviceType: ServiceType): ServiceRecord[] {
         const records = this.cacheService.getItem<ServiceRecord[]>(serviceType);
 
-        return records ?? [];
+        // TODO: consider sorting this before storing instead of at this point
+        return records?.sort((a, b) => a.mileage - b.mileage) ?? [];
     }
 
     /**
